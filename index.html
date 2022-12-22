@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function findPalindrom(number, acc = 0) {
+            try {
+                reverseNumber = Number([...number.toString()].reverse().join(''));
+                if (number === reverseNumber) {
+                    const result = {
+                        result: reverseNumber,
+                        steps: acc
+                    }
+                    return result;
+                }
+                let newNubmber = number + reverseNumber;
+                return findPalindrom(newNubmber, ++acc);
+            } catch (error) {
+                throw new Error(`It\'s seems like number ${number} is from  Lychrel numbers`);
+            }
+        }
+
+        console.log(findPalindrom(89))
+
+    </script>
+</body>
+
+</html>
